@@ -69,32 +69,24 @@ public class CardList {
     private char[] cards;
     private String history = "";
     private String type = "";
-    public CardList(int numberOfCard)
-    {
-        this.cards = numberOfCard;      
+    public CardList(int numberOfCard)  //This asks the user the amount of cards, and starts randomly generating THAT AMOUNT and choosing out of "randomcards"
+    {    
         cards = new char[numberOfCard];
 		String randomcards = "A234567890JQK";
 		for (int i = 0; i < numberOfCard; i++)
 		{
 			cards[i] = randomcards.charAt((int)(Math.random()*13)); 
-		}
+		}   
     }
     public void flip()
     {
-        for (int i = 0; i < cards.length/2; i++)
-        {
-            int temp = cards[i];
-            cards[i] = cards[cards.length-i-1];
-            cards[cards.length-i-1] = temp;
-        }
-        /*for(int i = cards.length-1; i >= 0; i--)
+        for(int i = cards.length-1; i >= 0; i--)
         {
             int start = 0;
             int end = cards.length-1;
 
         }
-        */
-        type = ": Flip";
+        type = ":Flip";
     }
     public void shift()
     {
@@ -116,8 +108,8 @@ public class CardList {
     {
         for(int i = 0; i < cards.length; i++)
         {
-            history += String.format(cards[i] + ", ");
+            history += cards[i] + " , ";
         }
-        return history + type;
+        return history;
     }
 }

@@ -7,7 +7,7 @@ public class Assignment7 {
 	printMenu();
 	Scanner scan = new Scanner (System.in);
 	char command;  		// command letter
-    CardList myCards = new CardList();//constructor
+    CardList myCards = new CardList (1); //constructor
 
 
 	do{
@@ -20,12 +20,12 @@ public class Assignment7 {
 				System.out.println("a [Create new cards]" );
                 System.out.print("[Input the size of cards]" );
 				int sizecards = scan.nextInt();
-				myCards.CardList();
+				myCards = new CardList(sizecards);
 				System.out.println(myCards.getHistory());
 				break;
 			case 'b': //flip the order
 				System.out.print("b [Flip the cards]" );
-				System.out.print("\n\t [Type a question]: " );
+				System.out.print(" []: " );
 				break;
 			case 'c': //shift to the left
 				System.out.print("c [shift the cards]" );
