@@ -65,8 +65,10 @@
     return nums;
     }
 */
+
+import java.util.Arrays;
 public class CardList {
-    private char[] cards;
+    private char[] cards = new char[0];
     private String history = "";
     private String type = "";
     public CardList(int numberOfCard)  //This asks the user the amount of cards, and starts randomly generating THAT AMOUNT and choosing out of "randomcards"
@@ -76,29 +78,29 @@ public class CardList {
 		for (int i = 0; i < numberOfCard; i++)
 		{
 			cards[i] = randomcards.charAt((int)(Math.random()*13)); 
-		}   
+		}
     }
     public void flip()
     {
-        for(int i = cards.length-1; i >= 0; i--)
+        /*for(int i = cards.length-1; i >= 0; i--)
         {
             int start = 0;
             int end = cards.length-1;
 
-        }
-        type = ":Flip";
+        }*/
+        type = ": Flip";
     }
     public void shift()
     {
-
+        type = ": Shift";
     }
     public void shuffle()
     {
-
+        type = ": Shuffle";
     }
     public void change(int size)
     {
-
+        type = ": Change";
     }
     //private int[] shuffleIndex()
     //{
@@ -106,10 +108,7 @@ public class CardList {
     //}
     public String getHistory()
     {
-        for(int i = 0; i < cards.length; i++)
-        {
-            history += cards[i] + " , ";
-        }
+        history += Arrays.toString(cards) + type + "\n";
         return history;
     }
 }

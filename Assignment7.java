@@ -20,21 +20,32 @@ public class Assignment7 {
 				System.out.println("a [Create new cards]" );
                 System.out.print("[Input the size of cards]" );
 				int sizecards = scan.nextInt();
+				scan.nextLine();
 				myCards = new CardList(sizecards);
 				System.out.println(myCards.getHistory());
 				break;
 			case 'b': //flip the order
-				System.out.print("b [Flip the cards]" );
-				System.out.print(" []: " );
+				System.out.println("b [Flip the cards]" );
+				myCards.flip();
+				System.out.println(myCards.getHistory());
 				break;
 			case 'c': //shift to the left
-				System.out.print("c [shift the cards]" );
+				System.out.println("c [Shift the cards]" );
+				myCards.shift();
+				System.out.println(myCards.getHistory());
 				break;
-			case 'd'://randomize array position
-			System.out.println("d [Shuffle the cards]" );
+			case 'd'://randomize array position aka shuffle
+				System.out.println("d [Shuffle the cards]" );
+				myCards.shuffle();
+				System.out.println(myCards.getHistory());
 			break;
 			case 'e'://change the current cards and give new ones 
-				System.out.print("e [Change the cards]" );
+				System.out.println("e [Change the cards]" );
+				System.out.println("[Input the number of cards to change]: " );
+				int sizechange = scan.nextInt();
+				scan.nextLine();
+				myCards.change(sizechange);
+				System.out.println(myCards.getHistory());
 				break;
 			case '?': 
 				printMenu(); 
