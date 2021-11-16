@@ -80,26 +80,44 @@ public class CardList {
 			cards[i] = randomcards.charAt((int)(Math.random()*13)); 
 		}
     }
-    public void flip()
+    public void flip()//flip the array pos
     {
-        /*for(int i = cards.length-1; i >= 0; i--)
+        for (int i = 0; i < cards.length/2; i++)
         {
-            int start = 0;
-            int end = cards.length-1;
-
-        }*/
+            char temp = cards[i];
+            cards[i] = cards[cards.length-i-1];
+            cards[cards.length-i-1] = temp;
+        }
         type = ": Flip";
     }
-    public void shift()
+    public void shift()//shift it toward the left
     {
+        char temp = cards[0];
+        for(int i = 0; i < cards.length-1;i++)
+        {
+            cards[i] = cards[i+1];
+        }
         type = ": Shift";
+        cards[cards.length-1] = temp;
     }
-    public void shuffle()
+    public void shuffle()//randomize the array pos
     {
+        for(int i = cards.length-1; i > 0 ;i--)
+        {
+            int numba = (int)(Math.random()*(i+1));
+            char temp = cards[i];
+            cards[i] = cards[numba];
+            cards[numba] = temp;
+        }
         type = ": Shuffle";
     }
-    public void change(int size)
+    public void change(int size)//change user asked amount of cards
     {
+        String randomcards = "A234567890JQK";
+		for (int i = 0; i < size; i++)
+		{
+			cards[i] = randomcards.charAt((int)(Math.random()*13)); 
+		}
         type = ": Change";
     }
     //private int[] shuffleIndex()
